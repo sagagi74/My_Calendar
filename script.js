@@ -21,11 +21,64 @@
   //
   // TODO: Add code to display the current date in the header of the page.
 //});
+//current Time Clock
+function updateDateTime() {
+  var currentDate = dayjs().format('dddd, MMMM D, YYYY, h:mm:ss A');
+  $("#currentDay").text(currentDate);
 
-var currentDate = dayjs().format('dddd, MMMM D, YYYY');
-$("#currentDay").text(currentDate);
+  var currentHour = dayjs().hour();
 
-//when page is loaded show data from local storage
+  console.log (currentHour)
+
+
+  $(document).ready(function() {
+    var timeBlocks = $(".time-block");
+    for (var i = 0; i < timeBlocks.length; i++) {
+        var id = timeBlocks.eq(i).attr("id");
+        var hour = id.split("-")[1];
+        
+        // Accessing textarea and button within each div
+      // var textarea = timeBlocks.eq(i).find("textarea");
+      // var button = timeBlocks.eq(i).find("button");
+
+        // Output the id and hour to console
+       // console.log("ID:", id, "Hour:", hour);
+
+        if (currentHour > hour) {
+          console.log("ID:", id, "Hour:", hour,"Passed");
+        } else if (currentHour === hour) {
+          console.log("ID:", id, "Hour:", hour,"Current");
+        } else {
+          console.log("ID:", id, "Hour:", hour,"Future");
+        }
+
+        
+
+
+
+    }
+});
+
+  var currentDate = dayjs().format('dddd, MMMM D, YYYY, h:mm:ss A');
+  $("#currentDay").text(currentDate);
+}
+
+
+
+
+
+// Initial call to update date and time
+updateDateTime();
+
+// Update date and time every second
+setInterval(updateDateTime, 100000);
+
+
+
+
+
+
+//when page is loaded show saved data from local storage
 rendering()
 
 function rendering() {

@@ -9,16 +9,26 @@ function updateDateTime() {
   // block by comparing the id to the current hour
   $(document).ready(function() {
     var timeBlocks = $(".time-block");
+    
     for (var i = 0; i < timeBlocks.length; i++) {
         var id = timeBlocks.eq(i).attr("id");
         var hour = id.split("-")[1];
+        var timeElement =   $("#" + id );
+        console.log (timeElement)
        
         if (currentHour > hour) {
-          console.log("ID:", id, "Hour:", hour,"Passed");
-        } else if (currentHour === hour) {
-          console.log("ID:", id, "Hour:", hour,"Current");
-        } else {
-          console.log("ID:", id, "Hour:", hour,"Future");
+          //console.log("ID:", id, "Hour:", hour,"Passed");
+
+          timeElement.removeClass("time-block").addClass("time-block past");
+
+
+      //  console.log (currentHour + "  " + hour) 
+        } else if (currentHour == hour) {
+     //     console.log("ID:", id, "Hour:", hour,"Current");
+        timeElement.removeClass("time-block").addClass("time-block present");     
+        } else if (currentHour < hour)  {
+       //   console.log("ID:", id, "Hour:", hour,"Future");
+       timeElement.removeClass("time-block").addClass("time-block future");
         }
       
     }

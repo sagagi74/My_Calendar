@@ -26,6 +26,10 @@ This approach ensures that the application provides a seamless user experience w
 
 Live Site Link
 
+https://sagagi74.github.io/My_Calendar/
 
+Repository Location
+
+https://github.com/sagagi74/My_Calendar
 
 ![Site Image](Images/WorkSchdule.JPG)

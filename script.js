@@ -4,7 +4,7 @@ function updateDateTime() {
   var currentDate = dayjs().format('dddd, MMMM D, YYYY, h:mm:ss A');
   $("#currentDay").text(currentDate);
   var currentHour = dayjs().hour();
-  console.log (currentHour)
+  //console.log (currentHour)
   //Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour
   $(document).ready(function() {
@@ -14,7 +14,7 @@ function updateDateTime() {
         var id = timeBlocks.eq(i).attr("id");
         var hour = id.split("-")[1];
         var timeElement =   $("#" + id );
-        console.log (timeElement)
+        //console.log (timeElement)
        
         if (currentHour > hour) {
           //console.log("ID:", id, "Hour:", hour,"Passed");
@@ -39,7 +39,7 @@ function updateDateTime() {
 // Initial call to update date and time
 updateDateTime();
 // Update date and time every second
-setInterval(updateDateTime, 100000);
+setInterval(updateDateTime, 1000);
 //when page is loaded show saved data from local storage
 rendering()
 // Add code to get any user input that was saved in localStorage and set
